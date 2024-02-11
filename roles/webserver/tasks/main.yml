@@ -17,10 +17,14 @@
   
 - name: clone a repo
   become: true
-  git:
-    repo: https://github.com/seyi007i/tooling.git
-    dest: /var/www/html
-    force: yes
+  tasks:
+    - name: ensure git is at the latest version
+      git:
+        repo: https://github.com/seyi007i/tooling.git
+        dest: /var/www/html
+        clone: yes
+        update: yes
+  
 
 - name: copy html content to one level up
   become: true
