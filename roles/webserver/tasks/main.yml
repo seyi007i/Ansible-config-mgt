@@ -2,15 +2,19 @@
 - name: install apache
   become: true
   tasks:
-    yum: "httpd"
-    state: present
+    - name: ensure httpd is at the latest version
+      yum:
+        name: httpd
+        state: latest
 
 - name: install git
   become: true
-  task:
-    yum: "git"
-    state: present
-
+  tasks:
+    - name: ensure git is at the latest version
+      yum:
+        name: git
+        state: present
+  
 - name: clone a repo
   become: true
   git:
