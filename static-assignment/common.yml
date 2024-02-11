@@ -1,6 +1,16 @@
 ---
-- name: update web, nfs and db servers
-  hosts: webservers, nfs, db
+- name: update nfs and db servers
+  hosts: storage, dbservers
+  become: yes
+  tasks:
+    - name: ensure wireshark is at the latest version
+      yum:
+        name: wireshark
+        state: latest
+   
+
+- name: update web server
+  hosts: webservers
   become: yes
   tasks:
     - name: Update apt repo
