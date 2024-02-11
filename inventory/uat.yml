@@ -8,7 +8,7 @@ all:
       
   
   children:
-    uat-webservers:
+    uat_webservers:
       hosts:
         web01:
         web02:
