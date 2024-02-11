@@ -2,10 +2,10 @@ all:
   hosts:
     web01:
       ansible_host: 172.31.27.65
-      
+      ansible_user: ec2-user
     web02:
       ansible_host: 172.31.36.61 
-      
+      ansible_user: ec2-user
   
   children:
     uat_webservers:
