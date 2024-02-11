@@ -1,5 +1,6 @@
 ---
 - name: install apache
+  hosts: uat_webservers
   become: true
   tasks:
     - name: ensure httpd is at the latest version
