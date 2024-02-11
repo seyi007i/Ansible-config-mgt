@@ -28,16 +28,26 @@
 
 - name: copy html content to one level up
   become: true
-  command: cp -r /var/www/html/html/ /var/www/
-
+  tasks:
+    - name: ensure copy is at the latest version
+      copy:
+        src: /var/www/html/html/
+        dest: /var/www/
+  
 - name: Start service httpd, if not started
   become: true
-  service:
-    name: httpd
-    state: started
+  tasks:
+    - name: start hhtpd service
+      service:
+        name: httpd
+        state: started
+  
 
 - name: recursively remove /var/www/html/html/ directory
   become: true
-  file:
-    path: /var/www/html/html
-    state: absent
+  tasks:
+    - name: ensure git is at the latest version
+      file:
+        path: /var/www/html/html
+        state: absent
+  
