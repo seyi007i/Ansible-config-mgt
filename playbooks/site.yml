@@ -2,6 +2,6 @@
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
 
-- hosts: uat-webservers
+- hosts: uat_webservers
 - import_playbook: ../static-assignments/uat-webservers.yml
 
